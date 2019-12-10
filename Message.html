@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>Custom Required Message</h1>
+        <input type="text" class="form-control" autocomplete="off" 
+        data-error="{{'PLEASE FILL THE MISSING FIELD' | translate}}">
+</body>
+
+<script>
+  $(function () {
+             var inputs = document.getElementsByTagName("INPUT");
+             for (var i = 0; i < inputs.length; i++) {
+             inputs[i].oninvalid = function (e) {
+                       e.target.setCustomValidity("");
+                       if (!e.target.validity.valid) {
+                       e.target.setCustomValidity(e.target.getAttribute("data-error"));
+                     }
+                   };
+                 }
+              });
+</script>
+
+</html>
