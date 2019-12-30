@@ -24,16 +24,23 @@
               });
         
         // another function writen for when above function does not work
-         let elements = document.getElementsByTagName("INPUT");
-         let lang = localStorage.getItem('lang');
-         function getValidate() {
+        let elements = document.getElementsByTagName("INPUT");
+        let lang = localStorage.getItem('lang');
+        function getValidate() {
             for (var i = 0; i < elements.length; i++) {
             elements[i].oninvalid = function (e) {
                 if (e.target.value == '' && lang == 'ARB') {
                     console.log(e);
                     e.target.setCustomValidity("يرجى ملء الحقل المفقود");
+                }else if (e.target.value == '' && lang == 'FRN') {
+                    e.target.setCustomValidity("S'il vous plaît remplir le champ manquant");
+                }else {
+                    e.target.setCustomValidity("Please fill out this field.");
                 }
-            }
+            };
+        }
+    }
+        
 </script>
 
 </html>
