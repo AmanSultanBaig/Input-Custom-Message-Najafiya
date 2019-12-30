@@ -46,6 +46,18 @@
     // html exmaple 
     /* <input type="text" class="form-control" required oninvalid="getValidate(this)" oninput="this.setCustomValidity('')"> */ 
         
+   // with this input this approach also can be implement
+    let lang = localStorage.getItem('lang');
+    function getValidate(input) {
+        if (input.value == '' && lang == 'ARB') {
+            input.setCustomValidity("يرجى ملء الحقل المفقود");
+        } else if (input.value == '' && lang == 'FRN') {
+            input.setCustomValidity("S'il vous plaît remplir le champ manquant");
+        } else {
+            input.setCustomValidity("Please fill out this field.");
+        }
+    }
+        
 </script>
 
 </html>
